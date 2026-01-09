@@ -70,13 +70,13 @@ namespace KiteConnect
             OI = data.Count > 6 ? Convert.ToUInt64(data[6]) : 0;
         }
 
-        public DateTime TimeStamp { get; }
-        public decimal Open { get; }
-        public decimal High { get; }
-        public decimal Low { get; }
-        public decimal Close { get; }
-        public ulong Volume { get; }
-        public ulong OI { get; }
+        public DateTime TimeStamp { get; set; }
+        public decimal Open { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
+        public decimal Close { get; set; }
+        public ulong Volume { get; set; }
+        public ulong OI { get; set; }
     }
 
     /// <summary>
@@ -715,35 +715,35 @@ namespace KiteConnect
 
         }
 
-        public string Product { get; }
-        public decimal OvernightQuantity { get; }
-        public string Exchange { get; }
-        public decimal SellValue { get; }
-        public decimal BuyM2M { get; }
-        public decimal LastPrice { get; }
-        public string TradingSymbol { get; }
-        public decimal Realised { get; }
-        public decimal PNL { get; }
-        public decimal Multiplier { get; }
-        public decimal SellQuantity { get; }
-        public decimal SellM2M { get; }
-        public decimal BuyValue { get; }
-        public decimal BuyQuantity { get; }
-        public decimal AveragePrice { get; }
-        public decimal Unrealised { get; }
-        public decimal Value { get; }
-        public decimal BuyPrice { get; }
-        public decimal SellPrice { get; }
-        public decimal M2M { get; }
-        public uint InstrumentToken { get; }
-        public decimal ClosePrice { get; }
-        public decimal Quantity { get; }
-        public decimal DayBuyQuantity { get; }
-        public decimal DayBuyPrice { get; }
-        public decimal DayBuyValue { get; }
-        public decimal DaySellQuantity { get; }
-        public decimal DaySellPrice { get; }
-        public decimal DaySellValue { get; }
+        public string Product { get; set; }
+        public decimal OvernightQuantity { get; set; }
+        public string Exchange { get; set; }
+        public decimal SellValue { get; set; }
+        public decimal BuyM2M { get; set; }
+        public decimal LastPrice { get; set; }
+        public string TradingSymbol { get; set; }
+        public decimal Realised { get; set; }
+        public decimal PNL { get; set; }
+        public decimal Multiplier { get; set; }
+        public decimal SellQuantity { get; set; }
+        public decimal SellM2M { get; set; }
+        public decimal BuyValue { get; set; }
+        public decimal BuyQuantity { get; set; }
+        public decimal AveragePrice { get; set; }
+        public decimal Unrealised { get; set; }
+        public decimal Value { get; set; }
+        public decimal BuyPrice { get; set; }
+        public decimal SellPrice { get; set; }
+        public decimal M2M { get; set; }
+        public uint InstrumentToken { get; set; }
+        public decimal ClosePrice { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal DayBuyQuantity { get; set; }
+        public decimal DayBuyPrice { get; set; }
+        public decimal DayBuyValue { get; set; }
+        public decimal DaySellQuantity { get; set; }
+        public decimal DaySellPrice { get; set; }
+        public decimal DaySellValue { get; set; }
     }
 
     /// <summary>
@@ -762,8 +762,8 @@ namespace KiteConnect
                 Net.Add(new Position(item));
         }
 
-        public List<Position> Day { get; }
-        public List<Position> Net { get; }
+        public List<Position> Day { get; set; }
+        public List<Position> Net { get; set; }
     }
 
     /// <summary>
@@ -1131,18 +1131,18 @@ namespace KiteConnect
 
         }
 
-        public string TradeId { get; }
-        public string OrderId { get; }
-        public string ExchangeOrderId { get; }
-        public string Tradingsymbol { get; }
-        public string Exchange { get; }
-        public uint InstrumentToken { get; }
-        public string TransactionType { get; }
-        public string Product { get; }
-        public decimal AveragePrice { get; }
-        public decimal Quantity { get; }
-        public DateTime? FillTimestamp { get; }
-        public DateTime? ExchangeTimestamp { get; }
+        public string TradeId { get; set; }
+        public string OrderId { get; set; }
+        public string ExchangeOrderId { get; set; }
+        public string Tradingsymbol { get; set; }
+        public string Exchange { get; set; }
+        public uint InstrumentToken { get; set; }
+        public string TransactionType { get; set; }
+        public string Product { get; set; }
+        public decimal AveragePrice { get; set; }
+        public decimal Quantity { get; set; }
+        public DateTime? FillTimestamp { get; set; }
+        public DateTime? ExchangeTimestamp { get; set; }
     }
 
     /// <summary>
@@ -1165,10 +1165,10 @@ namespace KiteConnect
             }
 
         }
-        public uint InstrumentToken { get; }
-        public decimal Lower { get; }
-        public decimal Upper { get; }
-        public decimal Percentage { get; }
+        public uint InstrumentToken { get; set; }
+        public decimal Lower { get; set; }
+        public decimal Upper { get; set; }
+        public decimal Percentage { get; set; }
     }
 
     /// <summary>
@@ -1203,21 +1203,21 @@ namespace KiteConnect
 
         }
 
-        public string APIKey { get; }
-        public string[] Products { get; }
-        public string UserName { get; }
-        public string UserShortName { get; }
-        public string AvatarURL { get; }
-        public string Broker { get; }
-        public string AccessToken { get; }
-        public string PublicToken { get; }
-        public string RefreshToken { get; }
-        public string UserType { get; }
-        public string UserId { get; }
-        public DateTime? LoginTime { get; }
-        public string[] Exchanges { get; }
-        public string[] OrderTypes { get; }
-        public string Email { get; }
+        public string APIKey { get; set; }
+        public string[] Products { get; set; }
+        public string UserName { get; set; }
+        public string UserShortName { get; set; }
+        public string AvatarURL { get; set; }
+        public string Broker { get; set; }
+        public string AccessToken { get; set; }
+        public string PublicToken { get; set; }
+        public string RefreshToken { get; set; }
+        public string UserType { get; set; }
+        public string UserId { get; set; }
+        public DateTime? LoginTime { get; set; }
+        public string[] Exchanges { get; set; }
+        public string[] OrderTypes { get; set; }
+        public string Email { get; set; }
     }
 
     public class TokenSet
@@ -1235,9 +1235,9 @@ namespace KiteConnect
                 throw new DataException(e.Message + " " + Utils.JsonSerialize(data), HttpStatusCode.OK, e);
             }
         }
-        public string UserId { get; }
-        public string AccessToken { get; }
-        public string RefreshToken { get; }
+        public string UserId { get; set; }
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 
     /// <summary>
@@ -1267,15 +1267,15 @@ namespace KiteConnect
         }
 
 
-        public string[] Products { get; }
-        public string UserName { get; }
-        public string UserShortName { get; }
-        public string AvatarURL { get; }
-        public string Broker { get; }
-        public string UserType { get; }
-        public string[] Exchanges { get; }
-        public string[] OrderTypes { get; }
-        public string Email { get; }
+        public string[] Products { get; set; }
+        public string UserName { get; set; }
+        public string UserShortName { get; set; }
+        public string AvatarURL { get; set; }
+        public string Broker { get; set; }
+        public string UserType { get; set; }
+        public string[] Exchanges { get; set; }
+        public string[] OrderTypes { get; set; }
+        public string Email { get; set; }
     }
 
     /// <summary>
@@ -1412,11 +1412,11 @@ namespace KiteConnect
 
         }
         public uint InstrumentToken { get; set; }
-        public decimal LastPrice { get; }
-        public decimal Open { get; }
-        public decimal Close { get; }
-        public decimal High { get; }
-        public decimal Low { get; }
+        public decimal LastPrice { get; set; }
+        public decimal Open { get; set; }
+        public decimal Close { get; set; }
+        public decimal High { get; set; }
+        public decimal Low { get; set; }
     }
 
     /// <summary>
@@ -1438,7 +1438,7 @@ namespace KiteConnect
 
         }
         public uint InstrumentToken { get; set; }
-        public decimal LastPrice { get; }
+        public decimal LastPrice { get; set; }
     }
 
     /// <summary>
@@ -1465,13 +1465,13 @@ namespace KiteConnect
 
         }
 
-        public decimal Quantity { get; }
-        public string Fund { get; }
-        public string Folio { get; }
-        public decimal AveragePrice { get; }
-        public string TradingSymbol { get; }
-        public decimal LastPrice { get; }
-        public decimal PNL { get; }
+        public decimal Quantity { get; set; }
+        public string Fund { get; set; }
+        public string Folio { get; set; }
+        public decimal AveragePrice { get; set; }
+        public string TradingSymbol { get; set; }
+        public decimal LastPrice { get; set; }
+        public decimal PNL { get; set; }
     }
 
     /// <summary>
@@ -1510,25 +1510,25 @@ namespace KiteConnect
 
         }
 
-        public string TradingSymbol { get; }
-        public string AMC { get; }
-        public string Name { get; }
+        public string TradingSymbol { get; set; }
+        public string AMC { get; set; }
+        public string Name { get; set; }
 
-        public bool PurchaseAllowed { get; }
-        public bool RedemtpionAllowed { get; }
+        public bool PurchaseAllowed { get; set; }
+        public bool RedemtpionAllowed { get; set; }
 
-        public decimal MinimumPurchaseAmount { get; }
-        public decimal PurchaseAmountMultiplier { get; }
-        public decimal MinimumAdditionalPurchaseAmount { get; }
-        public decimal MinimumRedemptionQuantity { get; }
-        public decimal RedemptionQuantityMultiplier { get; }
-        public decimal LastPrice { get; }
+        public decimal MinimumPurchaseAmount { get; set; }
+        public decimal PurchaseAmountMultiplier { get; set; }
+        public decimal MinimumAdditionalPurchaseAmount { get; set; }
+        public decimal MinimumRedemptionQuantity { get; set; }
+        public decimal RedemptionQuantityMultiplier { get; set; }
+        public decimal LastPrice { get; set; }
 
-        public string DividendType { get; }
-        public string SchemeType { get; }
-        public string Plan { get; }
-        public string SettlementType { get; }
-        public DateTime? LastPriceDate { get; }
+        public string DividendType { get; set; }
+        public string SchemeType { get; set; }
+        public string Plan { get; set; }
+        public string SettlementType { get; set; }
+        public DateTime? LastPriceDate { get; set; }
     }
 
     /// <summary>
@@ -1567,25 +1567,25 @@ namespace KiteConnect
 
         }
 
-        public string StatusMessage { get; }
-        public string PurchaseType { get; }
-        public string PlacedBy { get; }
-        public decimal Amount { get; }
-        public decimal Quantity { get; }
-        public string SettlementId { get; }
-        public DateTime? OrderTimestamp { get; }
-        public decimal AveragePrice { get; }
-        public string TransactionType { get; }
-        public string ExchangeOrderId { get; }
-        public DateTime? ExchangeTimestamp { get; }
-        public string Fund { get; }
-        public string Variety { get; }
-        public string Folio { get; }
-        public string Tradingsymbol { get; }
-        public string Tag { get; }
-        public string OrderId { get; }
-        public string Status { get; }
-        public decimal LastPrice { get; }
+        public string StatusMessage { get; set; }
+        public string PurchaseType { get; set; }
+        public string PlacedBy { get; set; }
+        public decimal Amount { get; set; }
+        public decimal Quantity { get; set; }
+        public string SettlementId { get; set; }
+        public DateTime? OrderTimestamp { get; set; }
+        public decimal AveragePrice { get; set; }
+        public string TransactionType { get; set; }
+        public string ExchangeOrderId { get; set; }
+        public DateTime? ExchangeTimestamp { get; set; }
+        public string Fund { get; set; }
+        public string Variety { get; set; }
+        public string Folio { get; set; }
+        public string Tradingsymbol { get; set; }
+        public string Tag { get; set; }
+        public string OrderId { get; set; }
+        public string Status { get; set; }
+        public decimal LastPrice { get; set; }
     }
 
     /// <summary>
@@ -1619,21 +1619,21 @@ namespace KiteConnect
             }
         }
 
-        public string DividendType { get; }
-        public int PendingInstalments { get; }
-        public DateTime? Created { get; }
-        public DateTime? LastInstalment { get; }
-        public string TransactionType { get; }
-        public string Frequency { get; }
-        public int InstalmentDate { get; }
-        public string Fund { get; }
-        public string SIPId { get; }
-        public string Tradingsymbol { get; }
-        public string Tag { get; }
-        public decimal InstalmentAmount { get; }
-        public int Instalments { get; }
-        public string Status { get; }
-        public string OrderId { get; }
+        public string DividendType { get; set; }
+        public int PendingInstalments { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastInstalment { get; set; }
+        public string TransactionType { get; set; }
+        public string Frequency { get; set; }
+        public int InstalmentDate { get; set; }
+        public string Fund { get; set; }
+        public string SIPId { get; set; }
+        public string Tradingsymbol { get; set; }
+        public string Tag { get; set; }
+        public decimal InstalmentAmount { get; set; }
+        public int Instalments { get; set; }
+        public string Status { get; set; }
+        public string OrderId { get; set; }
     }
 
 }
