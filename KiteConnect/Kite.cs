@@ -46,7 +46,7 @@ namespace KiteConnect
         {
             _accessToken = AccessToken;
             _apiKey = APIKey;
-            if (!String.IsNullOrEmpty(Root)) this._root = Root;
+            if (!string.IsNullOrEmpty(Root)) this._root = Root;
             _enableLogging = Debug;
 
             _timeout = Timeout;
@@ -105,7 +105,7 @@ namespace KiteConnect
         /// <returns>Login url to authenticate the user.</returns>
         public string GetLoginURL()
         {
-            return String.Format("{0}?api_key={1}&v=3", _login, _apiKey);
+            return string.Format("{0}?api_key={1}&v=3", _login, _apiKey);
         }
 
         /// <summary>
@@ -435,7 +435,7 @@ namespace KiteConnect
             string ProductString = Product;
 
             if ((ProductString == "bo" || ProductString == "co") && VarietyString != ProductString)
-                throw new Exception(String.Format("Invalid variety. It should be: {0}", ProductString));
+                throw new Exception(string.Format("Invalid variety. It should be: {0}", ProductString));
 
             Utils.AddIfNotNull(param, "order_id", OrderId);
             Utils.AddIfNotNull(param, "parent_order_id", ParentOrderId);
@@ -528,7 +528,7 @@ namespace KiteConnect
         public List<Trade> GetOrderTrades(string OrderId = null)
         {
             Dictionary<string, dynamic> tradesdata;
-            if (!String.IsNullOrEmpty(OrderId))
+            if (!string.IsNullOrEmpty(OrderId))
             {
                 var param = new Dictionary<string, dynamic>();
                 param.Add("order_id", OrderId);
@@ -633,7 +633,7 @@ namespace KiteConnect
 
             List<Dictionary<string, dynamic>> instrumentsData;
 
-            if (String.IsNullOrEmpty(Exchange))
+            if (string.IsNullOrEmpty(Exchange))
                 instrumentsData = Get(Routes.Market.AllInstruments, param);
             else
             {
@@ -932,7 +932,7 @@ namespace KiteConnect
         /// </summary>
         /// <returns>The Mutual funds order.</returns>
         /// <param name="OrderId">Order id.</param>
-        public MFOrder GetMFOrders(String OrderId)
+        public MFOrder GetMFOrders(string OrderId)
         {
             var param = new Dictionary<string, dynamic>();
             param.Add("order_id", OrderId);
@@ -975,7 +975,7 @@ namespace KiteConnect
         /// </summary>
         /// <returns>JSON response as nested string dictionary.</returns>
         /// <param name="OrderId">Unique order id.</param>
-        public Dictionary<string, dynamic> CancelMFOrder(String OrderId)
+        public Dictionary<string, dynamic> CancelMFOrder(string OrderId)
         {
             var param = new Dictionary<string, dynamic>();
 
@@ -1008,7 +1008,7 @@ namespace KiteConnect
         /// </summary>
         /// <returns>The Mutual funds SIP.</returns>
         /// <param name="SIPID">SIP id.</param>
-        public MFSIP GetMFSIPs(String SIPID)
+        public MFSIP GetMFSIPs(string SIPID)
         {
             var param = new Dictionary<string, dynamic>();
             param.Add("sip_id", SIPID);
@@ -1086,7 +1086,7 @@ namespace KiteConnect
         /// </summary>
         /// <returns>JSON response as nested string dictionary.</returns>
         /// <param name="SIPId">SIP id.</param>
-		public Dictionary<string, dynamic> CancelMFSIP(String SIPId)
+		public Dictionary<string, dynamic> CancelMFSIP(string SIPId)
         {
             var param = new Dictionary<string, dynamic>();
 
@@ -1181,7 +1181,7 @@ namespace KiteConnect
             {
                 foreach (var header in Req.Headers)
                 {
-                    Console.WriteLine("DEBUG: " + header.Key + ": " + String.Join(",", header.Value.ToArray()));
+                    Console.WriteLine("DEBUG: " + header.Key + ": " + string.Join(",", header.Value.ToArray()));
                 }
             }
         }
@@ -1222,14 +1222,14 @@ namespace KiteConnect
                 string url = route;
                 if (QueryParams.Count > 0)
                 {
-                    url += "?" + String.Join("&", QueryParams.Select(x => Utils.BuildParam(x.Key, x.Value)));
+                    url += "?" + string.Join("&", QueryParams.Select(x => Utils.BuildParam(x.Key, x.Value)));
                 }
 
                 string requestBody = "";
                 if (json)
                     requestBody = Utils.JsonSerialize(Params);
                 else
-                    requestBody = String.Join("&", (Params as Dictionary<string, dynamic>).Select(x => Utils.BuildParam(x.Key, x.Value)));
+                    requestBody = string.Join("&", (Params as Dictionary<string, dynamic>).Select(x => Utils.BuildParam(x.Key, x.Value)));
 
                 request.RequestUri = new Uri(url);
                 request.Method = new HttpMethod(Method);
@@ -1255,7 +1255,7 @@ namespace KiteConnect
                 // build final url
                 if (allParams.Count > 0)
                 {
-                    url += "?" + String.Join("&", allParams.Select(x => Utils.BuildParam(x.Key, x.Value)));
+                    url += "?" + string.Join("&", allParams.Select(x => Utils.BuildParam(x.Key, x.Value)));
                 }
 
                 request.RequestUri = new Uri(url);

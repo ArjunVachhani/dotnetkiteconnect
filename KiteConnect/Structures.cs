@@ -12,14 +12,14 @@ namespace KiteConnect
     public class Tick
     {
         public string Mode { get; set; }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public bool Tradable { get; set; }
         public decimal LastPrice { get; set; }
-        public UInt32 LastQuantity { get; set; }
+        public uint LastQuantity { get; set; }
         public decimal AveragePrice { get; set; }
-        public UInt32 Volume { get; set; }
-        public UInt32 BuyQuantity { get; set; }
-        public UInt32 SellQuantity { get; set; }
+        public uint Volume { get; set; }
+        public uint BuyQuantity { get; set; }
+        public uint SellQuantity { get; set; }
         public decimal Open { get; set; }
         public decimal High { get; set; }
         public decimal Low { get; set; }
@@ -31,9 +31,9 @@ namespace KiteConnect
         // KiteConnect 3 Fields
 
         public DateTime? LastTradeTime { get; set; }
-        public UInt32 OI { get; set; }
-        public UInt32 OIDayHigh { get; set; }
-        public UInt32 OIDayLow { get; set; }
+        public uint OI { get; set; }
+        public uint OIDayHigh { get; set; }
+        public uint OIDayLow { get; set; }
         public DateTime? Timestamp { get; set; }
     }
 
@@ -49,9 +49,9 @@ namespace KiteConnect
             Orders = Convert.ToUInt32(data["orders"]);
         }
 
-        public UInt32 Quantity { get; set; }
+        public uint Quantity { get; set; }
         public decimal Price { get; set; }
-        public UInt32 Orders { get; set; }
+        public uint Orders { get; set; }
     }
 
     /// <summary>
@@ -75,8 +75,8 @@ namespace KiteConnect
         public decimal High { get; }
         public decimal Low { get; }
         public decimal Close { get; }
-        public UInt64 Volume { get; }
-        public UInt64 OI { get; }
+        public ulong Volume { get; }
+        public ulong OI { get; }
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ namespace KiteConnect
         public string TradingSymbol { get; set; }
         public string CollateralType { get; set; }
         public decimal T1Quantity { get; set; }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public string ISIN { get; set; }
         public decimal RealisedQuantity { get; set; }
         public decimal Quantity { get; set; }
@@ -205,7 +205,7 @@ namespace KiteConnect
 
         public string TradingSymbol { get; set; }
         public string Exchange { get; set; }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public string ISIN { get; set; }
         public string Product { get; set; }
         public decimal Price { get; set; }
@@ -735,7 +735,7 @@ namespace KiteConnect
         public decimal BuyPrice { get; }
         public decimal SellPrice { get; }
         public decimal M2M { get; }
-        public UInt32 InstrumentToken { get; }
+        public uint InstrumentToken { get; }
         public decimal ClosePrice { get; }
         public decimal Quantity { get; }
         public decimal DayBuyQuantity { get; }
@@ -837,7 +837,7 @@ namespace KiteConnect
         public string ExchangeOrderId { get; set; }
         public DateTime? ExchangeTimestamp { get; set; }
         public decimal FilledQuantity { get; set; }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public string OrderId { get; set; }
         public DateTime? OrderTimestamp { get; set; }
         public string OrderType { get; set; }
@@ -946,7 +946,7 @@ namespace KiteConnect
             }
         }
 
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public string Exchange { get; set; }
         public string TradingSymbol { get; set; }
         public List<decimal> TriggerValues { get; set; }
@@ -1036,7 +1036,7 @@ namespace KiteConnect
     {
         public string TradingSymbol { get; set; }
         public string Exchange { get; set; }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public string TriggerType { get; set; }
         public decimal LastPrice { get; set; }
         public List<GTTOrderParams> Orders { get; set; }
@@ -1088,8 +1088,8 @@ namespace KiteConnect
 
         }
 
-        public UInt32 InstrumentToken { get; set; }
-        public UInt32 ExchangeToken { get; set; }
+        public uint InstrumentToken { get; set; }
+        public uint ExchangeToken { get; set; }
         public string TradingSymbol { get; set; }
         public string Name { get; set; }
         public decimal LastPrice { get; set; }
@@ -1099,7 +1099,7 @@ namespace KiteConnect
         public string Segment { get; set; }
         public string Exchange { get; set; }
         public decimal Strike { get; set; }
-        public UInt32 LotSize { get; set; }
+        public uint LotSize { get; set; }
     }
 
     /// <summary>
@@ -1136,7 +1136,7 @@ namespace KiteConnect
         public string ExchangeOrderId { get; }
         public string Tradingsymbol { get; }
         public string Exchange { get; }
-        public UInt32 InstrumentToken { get; }
+        public uint InstrumentToken { get; }
         public string TransactionType { get; }
         public string Product { get; }
         public decimal AveragePrice { get; }
@@ -1165,7 +1165,7 @@ namespace KiteConnect
             }
 
         }
-        public UInt32 InstrumentToken { get; }
+        public uint InstrumentToken { get; }
         public decimal Lower { get; }
         public decimal Upper { get; }
         public decimal Percentage { get; }
@@ -1362,13 +1362,13 @@ namespace KiteConnect
 
         }
 
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public decimal LastPrice { get; set; }
-        public UInt32 LastQuantity { get; set; }
+        public uint LastQuantity { get; set; }
         public decimal AveragePrice { get; set; }
-        public UInt32 Volume { get; set; }
-        public UInt32 BuyQuantity { get; set; }
-        public UInt32 SellQuantity { get; set; }
+        public uint Volume { get; set; }
+        public uint BuyQuantity { get; set; }
+        public uint SellQuantity { get; set; }
         public decimal Open { get; set; }
         public decimal High { get; set; }
         public decimal Low { get; set; }
@@ -1382,9 +1382,9 @@ namespace KiteConnect
         // KiteConnect 3 Fields
 
         public DateTime? LastTradeTime { get; set; }
-        public UInt32 OI { get; set; }
-        public UInt32 OIDayHigh { get; set; }
-        public UInt32 OIDayLow { get; set; }
+        public uint OI { get; set; }
+        public uint OIDayHigh { get; set; }
+        public uint OIDayLow { get; set; }
         public DateTime? Timestamp { get; set; }
     }
 
@@ -1411,7 +1411,7 @@ namespace KiteConnect
             }
 
         }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public decimal LastPrice { get; }
         public decimal Open { get; }
         public decimal Close { get; }
@@ -1437,7 +1437,7 @@ namespace KiteConnect
             }
 
         }
-        public UInt32 InstrumentToken { get; set; }
+        public uint InstrumentToken { get; set; }
         public decimal LastPrice { get; }
     }
 
