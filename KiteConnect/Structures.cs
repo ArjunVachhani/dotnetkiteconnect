@@ -9,7 +9,7 @@ namespace KiteConnect
     /// <summary>
     /// Tick data structure
     /// </summary>
-    public struct Tick
+    public class Tick
     {
         public string Mode { get; set; }
         public UInt32 InstrumentToken { get; set; }
@@ -40,7 +40,7 @@ namespace KiteConnect
     /// <summary>
     /// Market depth item structure
     /// </summary>
-    public struct DepthItem
+    public class DepthItem
     {
         public DepthItem(Dictionary<string, dynamic> data)
         {
@@ -57,7 +57,7 @@ namespace KiteConnect
     /// <summary>
     /// Historical structure
     /// </summary>
-    public struct Historical
+    public class Historical
     {
         public Historical(ArrayList data)
         {
@@ -82,7 +82,7 @@ namespace KiteConnect
     /// <summary>
     /// Holding structure
     /// </summary>
-    public struct Holding
+    public class Holding
     {
         public Holding(Dictionary<string, dynamic> data)
         {
@@ -140,7 +140,7 @@ namespace KiteConnect
     /// <summary>
     /// MTF Holding structure
     /// </summary>
-    public struct MTFHolding
+    public class MTFHolding
     {
         public MTFHolding(Dictionary<string, dynamic> data)
         {
@@ -168,7 +168,7 @@ namespace KiteConnect
     /// <summary>
     /// AuctionInstrument structure
     /// </summary>
-    public struct AuctionInstrument
+    public class AuctionInstrument
     {
         public AuctionInstrument(Dictionary<string, dynamic> data)
         {
@@ -230,7 +230,7 @@ namespace KiteConnect
     /// <summary>
     /// Available margin structure
     /// </summary>
-    public struct AvailableMargin
+    public class AvailableMargin
     {
         public AvailableMargin(Dictionary<string, dynamic> data)
         {
@@ -256,7 +256,7 @@ namespace KiteConnect
     /// <summary>
     /// Utilised margin structure
     /// </summary>
-    public struct UtilisedMargin
+    public class UtilisedMargin
     {
         public UtilisedMargin(Dictionary<string, dynamic> data)
         {
@@ -293,7 +293,7 @@ namespace KiteConnect
     /// <summary>
     /// UserMargin structure
     /// </summary>
-    public struct UserMargin
+    public class UserMargin
     {
         public UserMargin(Dictionary<string, dynamic> data)
         {
@@ -319,7 +319,7 @@ namespace KiteConnect
     /// <summary>
     /// User margins response structure
     /// </summary>
-    public struct UserMarginsResponse
+    public class UserMarginsResponse
     {
         public UserMarginsResponse(Dictionary<string, dynamic> data)
         {
@@ -340,7 +340,7 @@ namespace KiteConnect
     /// <summary>
     /// OrderMarginParams structure
     /// </summary>
-    public struct OrderMarginParams
+    public class OrderMarginParams
     {
         /// <summary>
         /// Exchange in which instrument is listed (Constants.Exchange.NSE, Constants.Exchange.BSE, etc.)
@@ -391,7 +391,7 @@ namespace KiteConnect
     /// <summary>
     /// OrderMargin structure
     /// </summary>
-    public struct OrderMargin
+    public class OrderMargin
     {
         public OrderMargin(Dictionary<string, dynamic> data)
         {
@@ -439,7 +439,7 @@ namespace KiteConnect
     /// <summary>
     /// ContractNoteParams structure
     /// </summary>
-    public struct ContractNoteParams
+    public class ContractNoteParams
     {
         /// <summary>
         /// Order ID that is received in the orderbook
@@ -490,7 +490,7 @@ namespace KiteConnect
     /// <summary>
     /// ContractNote structure
     /// </summary>
-    public struct ContractNote
+    public class ContractNote
     {
         public ContractNote(Dictionary<string, dynamic> data)
         {
@@ -511,7 +511,7 @@ namespace KiteConnect
                 throw new DataException(e.Message + " " + Utils.JsonSerialize(data), HttpStatusCode.OK, e);
             }
         }
-    
+
         /// <summary>
         /// Exchange in which instrument is listed (Constants.Exchange.NSE, Constants.Exchange.BSE, etc.)
         /// </summary>
@@ -561,7 +561,7 @@ namespace KiteConnect
     /// <summary>
     /// OrderCharges structure
     /// </summary>
-    public struct OrderCharges
+    public class OrderCharges
     {
         public OrderCharges(Dictionary<string, dynamic> data)
         {
@@ -595,7 +595,7 @@ namespace KiteConnect
     /// <summary>
     /// OrderChargesGST structure
     /// </summary>
-    public struct OrderChargesGST
+    public class OrderChargesGST
     {
         public OrderChargesGST(Dictionary<string, dynamic> data)
         {
@@ -621,7 +621,7 @@ namespace KiteConnect
     /// <summary>
     /// BasketMargin structure
     /// </summary>
-    public struct BasketMargin
+    public class BasketMargin
     {
         public BasketMargin(Dictionary<string, dynamic> data)
         {
@@ -650,7 +650,7 @@ namespace KiteConnect
     /// <summary>
     /// OrderMarginPNL structure
     /// </summary>
-    public struct OrderMarginPNL
+    public class OrderMarginPNL
     {
         public OrderMarginPNL(Dictionary<string, dynamic> data)
         {
@@ -672,7 +672,7 @@ namespace KiteConnect
     /// <summary>
     /// Position structure
     /// </summary>
-    public struct Position
+    public class Position
     {
         public Position(Dictionary<string, dynamic> data)
         {
@@ -749,7 +749,7 @@ namespace KiteConnect
     /// <summary>
     /// Position response structure
     /// </summary>
-    public struct PositionResponse
+    public class PositionResponse
     {
         public PositionResponse(Dictionary<string, dynamic> data)
         {
@@ -769,7 +769,7 @@ namespace KiteConnect
     /// <summary>
     /// Order structure
     /// </summary>
-    public struct Order
+    public class Order
     {
         public Order(Dictionary<string, dynamic> data)
         {
@@ -864,7 +864,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTOrder structure
     /// </summary>
-    public struct GTT
+    public class GTT
     {
         public GTT(Dictionary<string, dynamic> data)
         {
@@ -904,7 +904,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTMeta structure
     /// </summary>
-    public struct GTTMeta
+    public class GTTMeta
     {
         public GTTMeta(Dictionary<string, dynamic> data)
         {
@@ -924,7 +924,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTCondition structure
     /// </summary>
-    public struct GTTCondition
+    public class GTTCondition
     {
         public GTTCondition(Dictionary<string, dynamic> data)
         {
@@ -956,7 +956,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTOrder structure
     /// </summary>
-    public struct GTTOrder
+    public class GTTOrder
     {
         public GTTOrder(Dictionary<string, dynamic> data)
         {
@@ -967,7 +967,7 @@ namespace KiteConnect
                 OrderType = data["order_type"];
                 Quantity = Convert.ToInt32(data["quantity"]);
                 Price = data["price"];
-                Result = data["result"] == null ? null : new Nullable<GTTResult>(new GTTResult(data["result"]));
+                Result = data["result"] == null ? null : new GTTResult(data["result"]);
             }
             catch (Exception e)
             {
@@ -986,13 +986,13 @@ namespace KiteConnect
     /// <summary>
     /// GTTResult structure
     /// </summary>
-    public struct GTTResult
+    public class GTTResult
     {
         public GTTResult(Dictionary<string, dynamic> data)
         {
             try
             {
-                OrderResult = data["order_result"] == null ? null : new Nullable<GTTOrderResult>(new GTTOrderResult(data["order_result"]));
+                OrderResult = data["order_result"] == null ? null : new GTTOrderResult(data["order_result"]);
                 Timestamp = data["timestamp"];
                 TriggeredAtPrice = data["triggered_at"];
             }
@@ -1010,7 +1010,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTOrderResult structure
     /// </summary>
-    public struct GTTOrderResult
+    public class GTTOrderResult
     {
         public GTTOrderResult(Dictionary<string, dynamic> data)
         {
@@ -1032,7 +1032,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTParams structure
     /// </summary>
-    public struct GTTParams
+    public class GTTParams
     {
         public string TradingSymbol { get; set; }
         public string Exchange { get; set; }
@@ -1046,7 +1046,7 @@ namespace KiteConnect
     /// <summary>
     /// GTTOrderParams structure
     /// </summary>
-    public struct GTTOrderParams
+    public class GTTOrderParams
     {
         public decimal Quantity { get; set; }
         public decimal Price { get; set; }
@@ -1061,7 +1061,7 @@ namespace KiteConnect
     /// <summary>
     /// Instrument structure
     /// </summary>
-    public struct Instrument
+    public class Instrument
     {
         public Instrument(Dictionary<string, dynamic> data)
         {
@@ -1105,7 +1105,7 @@ namespace KiteConnect
     /// <summary>
     /// Trade structure
     /// </summary>
-    public struct Trade
+    public class Trade
     {
         public Trade(Dictionary<string, dynamic> data)
         {
@@ -1148,7 +1148,7 @@ namespace KiteConnect
     /// <summary>
     /// Trigger range structure
     /// </summary>
-    public struct TrigerRange
+    public class TrigerRange
     {
         public TrigerRange(Dictionary<string, dynamic> data)
         {
@@ -1174,7 +1174,7 @@ namespace KiteConnect
     /// <summary>
     /// User structure
     /// </summary>
-    public struct User
+    public class User
     {
         public User(Dictionary<string, dynamic> data)
         {
@@ -1220,7 +1220,7 @@ namespace KiteConnect
         public string Email { get; }
     }
 
-    public struct TokenSet
+    public class TokenSet
     {
         public TokenSet(Dictionary<string, dynamic> data)
         {
@@ -1243,7 +1243,7 @@ namespace KiteConnect
     /// <summary>
     /// User structure
     /// </summary>
-    public struct Profile
+    public class Profile
     {
         public Profile(Dictionary<string, dynamic> data)
         {
@@ -1281,7 +1281,7 @@ namespace KiteConnect
     /// <summary>
     /// Quote structure
     /// </summary>
-    public struct Quote
+    public class Quote
     {
         public Quote(Dictionary<string, dynamic> data)
         {
@@ -1391,7 +1391,7 @@ namespace KiteConnect
     /// <summary>
     /// OHLC Quote structure
     /// </summary>
-    public struct OHLC
+    public class OHLC
     {
         public OHLC(Dictionary<string, dynamic> data)
         {
@@ -1422,7 +1422,7 @@ namespace KiteConnect
     /// <summary>
     /// LTP Quote structure
     /// </summary>
-    public struct LTP
+    public class LTP
     {
         public LTP(Dictionary<string, dynamic> data)
         {
@@ -1444,7 +1444,7 @@ namespace KiteConnect
     /// <summary>
     /// Mutual funds holdings structure
     /// </summary>
-    public struct MFHolding
+    public class MFHolding
     {
         public MFHolding(Dictionary<string, dynamic> data)
         {
@@ -1477,7 +1477,7 @@ namespace KiteConnect
     /// <summary>
     /// Mutual funds instrument structure
     /// </summary>
-    public struct MFInstrument
+    public class MFInstrument
     {
         public MFInstrument(Dictionary<string, dynamic> data)
         {
@@ -1534,7 +1534,7 @@ namespace KiteConnect
     /// <summary>
     /// Mutual funds order structure
     /// </summary>
-    public struct MFOrder
+    public class MFOrder
     {
         public MFOrder(Dictionary<string, dynamic> data)
         {
@@ -1591,7 +1591,7 @@ namespace KiteConnect
     /// <summary>
     /// Mutual funds SIP structure
     /// </summary>
-    public struct MFSIP
+    public class MFSIP
     {
         public MFSIP(Dictionary<string, dynamic> data)
         {
