@@ -1315,10 +1315,25 @@ namespace KiteConnect
 
         }
 
-        private async Task<T> GetAsync<T>(string path, CancellationToken cancellationToken)
+        private async Task<T> GetAsync<T>(string path, IEnumerable<KeyValuePair<string, string>> queryParameters = null, CancellationToken cancellationToken)
         {
             string url = _root + path;
-            var httpResponse = await httpClient.GetAsync(url, cancellationToken);
+            using var httpResponse = await httpClient.GetAsync(url, cancellationToken);
+            return await ParseResponse<T>(httpResponse, cancellationToken);
+        }
+
+        private async Task<T> DeleteAsync<T>(string path, IEnumerable<KeyValuePair<string, string>> queryParameters = null, object data = null, CancellationToken cancellationToken = default)
+        {
+            string url = _root + path;
+            using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, url);
+            if (data != null)
+                httpRequestMessage.Content = JsonContent.Create(data, options: jsonSerializerOptions);
+            using var httpResponse = await httpClient.SendAsync(httpRequestMessage);
+            return await ParseResponse<T>(httpResponse, cancellationToken);
+        }
+
+        private async Task<T> ParseResponse<T>(HttpResponseMessage httpResponse, CancellationToken cancellationToken)
+        {
             if (httpResponse.IsSuccessStatusCode)
             {
                 var response = await httpResponse.Content.ReadFromJsonAsync<SucessResponse<T>>(jsonSerializerOptions, cancellationToken);
