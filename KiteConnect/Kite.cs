@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -12,6 +13,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace KiteConnect
 {
@@ -194,7 +196,7 @@ namespace KiteConnect
         /// <returns>User profile</returns>
         public Task<Profile> GetProfileAsync(CancellationToken cancellationToken = default)
         {
-            return GetAsync<Profile>("/user/profile", cancellationToken);
+            return GetAsync<Profile>("/user/profile", cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -318,18 +320,18 @@ namespace KiteConnect
         /// <returns>User margin response with both equity and commodity margins.</returns>
         public Task<UserMarginsResponse> GetMarginsAsync(CancellationToken cancellationToken = default)
         {
-            return GetAsync<UserMarginsResponse>("/user/margins", cancellationToken);
+            return GetAsync<UserMarginsResponse>("/user/margins", cancellationToken: cancellationToken);
         }
 
         /// <summary>
         /// Get account balance and cash margin details for a particular segment.
         /// </summary>
-        /// <param name="Segment">Trading segment (eg: equity or commodity)</param>
+        /// <param name="segment">Trading segment (eg: equity or commodity)</param>
         /// <param name="cancellationToken"></param>
         /// <returns>Margins for specified segment.</returns>
-        public Task<UserMargin> GetMarginsAsync(string Segment, CancellationToken cancellationToken = default)
+        public Task<UserMargin> GetMarginsAsync(string segment, CancellationToken cancellationToken = default)
         {
-            return GetAsync<UserMargin>($"/user/margins/{Segment}", cancellationToken);
+            return GetAsync<UserMargin>($"/user/margins/{segment}", cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -1315,21 +1317,42 @@ namespace KiteConnect
 
         }
 
-        private async Task<T> GetAsync<T>(string path, IEnumerable<KeyValuePair<string, string>> queryParameters = null, CancellationToken cancellationToken)
+        private async Task<TResult> GetAsync<TResult>(string path, NameValueCollection queryParameters = null, CancellationToken cancellationToken = default)
         {
-            string url = _root + path;
+            string url = BuildUrl(path, queryParameters);
             using var httpResponse = await httpClient.GetAsync(url, cancellationToken);
-            return await ParseResponse<T>(httpResponse, cancellationToken);
+            return await ParseResponse<TResult>(httpResponse, cancellationToken);
         }
 
-        private async Task<T> DeleteAsync<T>(string path, IEnumerable<KeyValuePair<string, string>> queryParameters = null, object data = null, CancellationToken cancellationToken = default)
+        private async Task<TResult> DeleteAsync<T, TResult>(string path, NameValueCollection queryParameters = null, T data = default, CancellationToken cancellationToken = default)
         {
-            string url = _root + path;
+            string url = BuildUrl(path, queryParameters);
             using var httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, url);
             if (data != null)
                 httpRequestMessage.Content = JsonContent.Create(data, options: jsonSerializerOptions);
             using var httpResponse = await httpClient.SendAsync(httpRequestMessage);
-            return await ParseResponse<T>(httpResponse, cancellationToken);
+            return await ParseResponse<TResult>(httpResponse, cancellationToken);
+        }
+
+        private string BuildUrl(string path, NameValueCollection queryParameters)
+        {
+            string url = _root + path;
+            if (queryParameters != null)
+            {
+                var uriBuilder = new UriBuilder(url);
+                if (url.Contains('?'))
+                {
+                    var existingQueryParamters = HttpUtility.ParseQueryString(uriBuilder.Query);
+                    existingQueryParamters.Add(queryParameters);
+                    uriBuilder.Query = existingQueryParamters.ToString();
+                }
+                else
+                {
+                    uriBuilder.Query = queryParameters.ToString();
+                }
+                url = uriBuilder.Uri.ToString();
+            }
+            return url;
         }
 
         private async Task<T> ParseResponse<T>(HttpResponseMessage httpResponse, CancellationToken cancellationToken)
